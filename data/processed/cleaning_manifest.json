@@ -1,0 +1,171 @@
+{
+  "run_timestamp_utc": "2026-09-08T06:08:36.082050+00:00",
+  "analysis_window": {
+    "start_year": 2015,
+    "end_year": 2026,
+    "max_freshness_days": 365,
+    "latest_year_is_partial": true
+  },
+  "collision_data": {
+    "source": {
+      "path": "data/raw/SDOT_Collisions_All_Years.geojson",
+      "bytes": 481407372,
+      "modified_utc": "2026-09-08T00:29:14.277457+00:00",
+      "sha256": "196987fb8c400fdbe434b75d282c88c55be5355af0f4c6a1b413b28a8c695f17",
+      "rows": 261881,
+      "min_incident_date": "2003-10-06",
+      "max_incident_date": "2026-08-31",
+      "freshness_days": 7
+    },
+    "cleaned_rows": 109040,
+    "canonical_format": "parquet",
+    "max_cleaned_incident_date": "2026-08-31",
+    "excluded_before_window": 152841,
+    "excluded_after_window": 0,
+    "severity_missing_rows": 223,
+    "midnight_time_rows": 19872,
+    "geometry_status": {
+      "valid": 106050,
+      "missing": 2990
+    },
+    "spatial_exclusions_by_year": {
+      "2015": 734,
+      "2016": 697,
+      "2017": 439,
+      "2018": 312,
+      "2019": 149,
+      "2020": 98,
+      "2021": 147,
+      "2022": 88,
+      "2023": 94,
+      "2024": 90,
+      "2025": 130,
+      "2026": 12
+    },
+    "spatial_exclusions_by_severity": {
+      "Property Damage Only Collision": 2671,
+      "Injury Collision": 287,
+      "Serious Injury Collision": 16,
+      "Missing": 13,
+      "Fatal Collision": 3
+    },
+    "business_rule_warnings": {
+      "fatalities_greater_than_person_count": 15,
+      "pedestrian_and_cyclist_count_greater_than_person_count": 370,
+      "serious_injuries_greater_than_injuries": 0
+    }
+  },
+  "vehicle_data": {
+    "source": {
+      "path": "data/raw/SDOT_Vehicle.csv",
+      "bytes": 156683747,
+      "modified_utc": "2026-03-20T04:57:14.625731+00:00",
+      "sha256": "6a8b28ac3c73b01712ba761c3f6f18aa862fb7204a5956e6beef4b0032f2c835",
+      "rows": 429671,
+      "min_incident_date": "2004-01-01",
+      "max_incident_date": "2026-01-23",
+      "freshness_days": 227
+    },
+    "cleaned_rows": 160695,
+    "canonical_format": "parquet",
+    "unique_collision_keys": 82450,
+    "excluded_before_window": 268974,
+    "excluded_after_window": 0,
+    "unknown_vehicle_type_rows": 9264,
+    "orphan_vehicle_rows": 2,
+    "orphan_collision_keys": 2,
+    "vehicle_categories": {
+      "Passenger Vehicle": 82616,
+      "Light Truck/Van": 59249,
+      "Unknown": 9264,
+      "Commercial Truck": 5144,
+      "Bus": 2015,
+      "Two-Wheeled": 1790,
+      "Other": 489,
+      "Railway Vehicle": 128
+    }
+  },
+  "processed_data": {
+    "rows": 106050,
+    "columns": [
+      "INCKEY",
+      "COLDETKEY",
+      "REPORTNO",
+      "LOCATION",
+      "MAXSEVERITYCODE",
+      "MAXSEVERITYDESC",
+      "PERSONCOUNT",
+      "PEDCOUNT",
+      "PEDCYLCOUNT",
+      "VEHCOUNT",
+      "INJURIES",
+      "SERIOUSINJURIES",
+      "FATALITIES",
+      "INCDATE",
+      "INCDTTM",
+      "JUNCTIONTYPE",
+      "ST_COLLISIONTYPE",
+      "SDOT_COLCODE",
+      "SDOT_COLDESC",
+      "INATTENTIONIND",
+      "UNDERINFL",
+      "WEATHER",
+      "ROADCOND",
+      "LIGHTCOND",
+      "PEDROWNOTGRNT",
+      "SPEEDING",
+      "HITPARKEDCAR",
+      "SHAREDMICROMOBILITYDESC",
+      "YEAR",
+      "MONTH",
+      "DAY",
+      "HOUR",
+      "Day_of_Week",
+      "Season",
+      "GEOMETRY_STATUS",
+      "HAS_VALID_GEOMETRY",
+      "X",
+      "Y",
+      "SEVERITY",
+      "TOTAL_PED",
+      "lat_bin",
+      "lon_bin",
+      "geometry"
+    ],
+    "canonical_format": "parquet"
+  },
+  "outputs": {
+    "collision_cleaned_parquet": {
+      "path": "/Users/trentonpham/Code/seattle_collision/data/cleaned/Collision_All_Filtered.parquet",
+      "bytes": 9550954
+    },
+    "collision_spatial_excluded": {
+      "path": "/Users/trentonpham/Code/seattle_collision/data/cleaned/Collision_Spatial_Excluded.parquet",
+      "bytes": 292183
+    },
+    "vehicle_cleaned_parquet": {
+      "path": "/Users/trentonpham/Code/seattle_collision/data/cleaned/Vehicle_Filtered.parquet",
+      "bytes": 2045836
+    },
+    "vehicle_cleaned_csv": {
+      "path": "/Users/trentonpham/Code/seattle_collision/data/cleaned/Vehicle_Filtered.csv",
+      "bytes": 14563977
+    },
+    "vehicle_orphaned": {
+      "path": "/Users/trentonpham/Code/seattle_collision/data/cleaned/Vehicle_Orphaned.parquet",
+      "bytes": 5152
+    },
+    "collision_processed_parquet": {
+      "path": "/Users/trentonpham/Code/seattle_collision/data/processed/Collision_Processed.parquet",
+      "bytes": 6167560
+    },
+    "collision_cleaned_geojson": {
+      "path": "/Users/trentonpham/Code/seattle_collision/data/cleaned/Collision_All_Filtered.geojson",
+      "bytes": 248607526
+    },
+    "collision_processed_geojson": {
+      "path": "/Users/trentonpham/Code/seattle_collision/data/processed/Collision_Processed.geojson",
+      "bytes": 127054997
+    }
+  }
+}
